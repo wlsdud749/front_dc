@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        div.container div {
+            padding: 3px;
+            margin : 3px;
+            border: 1px solid red;
+            width: 900px;
+            overflow: hidden;
+            
+        }
+
+        .header nav li {
+            text-align: center;;
+            float: left;
+            width: 150px;
+            height: 50px;
+            border: 1px solid gray;
+            list-style: none;
+        }
+
+        .header nav ul {
+            text-align: center;
+        }
+        
+        div.middle  div {
+            width: 120px;
+            float: left;
+            height: 200px;
+    
+
+            /* overflow 를 쓰면 창에 맞춰서 사용가능. */
+        }
+        div.middle div.center {
+            width: 550px;
+            background-color: pink;
+        }
+
+        div.center div {
+            width: 530px;
+            height: 30px;
+            background-color: green;
+        }
+        div.footer {
+            clear: both;
+            height: 80px;
+            background-color: rgb(221, 221, 138);
+        }
+
+        div.left {
+            background-color: green;
+            overflow: hidden;
+        }
+        div.left > div {
+            width: 107px;
+            height: 15px;
+            overflow: hidden;
+            background-color: skyblue;
+        }
+        
+        div.right {
+            background-color: pink;
+        }
+        
+        div.right div{
+            width: 138px;
+            height: 15px;
+            background-color: green;
+            
+        }
+
+        div.right div:nth-child(2) {
+            width:  138px;
+            height: 100px
+        }
+
+        h1 {
+            text-align: center;
+            border: 1px solid black; 
+        }
+
+        .header nav li{
+            display: inline-block;
+            border: 1px solid black; 
+        }
+
+       
+         
+
+
+
+        
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>길동이의 코딩교실</h1>
+            <div class="header2">
+                두번째
+            </div>
+        </div>
+        <div class="middle">
+            
+            <div class="left">
+                
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                
+            
+        </div>
+            <div class="center">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+            <div class="right">
+                <div>1</div>
+                <div class="second">2</div>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>초등학교 저학년용 계산기</h1>
+    <p>결과는 음수가 나오지 않도록</p>
+    <input type="text" id="num1" value="5" size="3">
+    <!-- <select id="oper">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select> -->
+
+
+    <input type="text" id="oper" value="+" size="3">
+    <!-- input 은 입력하는 공간. id는 id이고 value는 초기값을 설정하는 것 같음. -->
+    <input type="text" id="num2" value="10" size="3">
+    <input type="button" id="resultBtn" value="확인">
+    <div id="result">결과 : </div>
+
+    <script>
+        var num1 = document.querySelector("#num1");
+        var num2 = document.querySelector("#num2");
+        var oper = document.querySelector("#oper");
+        var resultBtn = document.querySelector("#resultBtn");
+        var result = document.querySelector("#result");
+
+        resultBtn.onclick = function (event) {
+            // console.log(num1.value);
+            // result.innerHTML = "결과 : " + num1.value;
+            // var a = parseInt(num1.value);
+            // 숫자만 읽어온다. 하지만 앞에 숫자가 아닌 ex) asda35 인 경우에는
+            // 못읽어옴. ex) 13asdas 인 경우 13으로 읽어옴.
+            // console.log(typeof num1.value);
+            // 원래 값은 스트링 문자열 데이터
+            // 데이터의 타입 확인
+            // console.log(typeof a);
+            // 문자열 데이터를 정수 데이터로 변환해주는 것
+
+
+            // 첫번째 값의 유효성 검사
+            if (num1.value == "" || !num1.value) {
+                alert("첫 번째 값을 입력하세요!");
+                num1.value = "";
+                // 아닐경우 공백
+                num1.focus();
+                //커서? 강조해준다는 뜻 같음. 페이지에서 보니 그 공간으로 포커스됨.
+                return;
+
+            }
+            if (isNaN(parseInt(num1.value))) {
+                alert("첫번째 값이 숫자가 아닙니다! 다시 입력하세요.");
+                // 경고문 출력 alter
+                num1.value = "";
+                // 아닐경우 공백
+                num1.focus();
+                return;
+            }
+
+            // 연산자 유효성 검사
+            if ("+-*/".indexOf(oper.value) == -1) {
+                alert("연산자는 + - * / 중에 입력 하세요!")
+                //indexof(변수) 해당값 출력 변수 안에 해당사항이 없으면 -1 출력.
+                //-1이 출력됐다는것은 값을 잘못 넣었다는 뜻.
+                oper.value = "";
+                oper.focus();
+                return;
+            }
+
+
+            // 두번째 값의 유효성 검사
+            if (num2.value == "" || !num2.value) {
+                alert("두 번째 값을 입력하세요!");
+                num2.value = "";
+                // 아닐경우 공백
+                num2.focus();
+                //커서? 강조해준다는 뜻 같음. 페이지에서 보니 그 공간으로 포커스됨.
+                return;
+
+            }
+            if (isNaN(parseInt(num2.value))) {
+                alert("두번째 값이 숫자가 아닙니다! 다시 입력하세요.");
+                // 경고문 출력 alter
+                num2.value = "";
+                // 아닐경우 공백
+                num2.focus();
+                return;
+            }
+            // console.log('num1 의 값:'+num1.value);
+            // console.log('num2 의 값:'+num2.value); 콘솔창에서 값이 제대로 입력되는지 확인용
+
+            var intNum1 = Number(num1.value);
+            var intNum2 = Number(num2.value);
+            // console.log(num1.value + oper.value + num2.value)
+            // var resultValue = Math.abs(eval(num1.value + oper.value + num2.value));
+
+            // eval 함수.
+
+            // if 사용
+            if(oper.value == "+") {
+                resultValue = intNum1 + intNum2;
+            }
+            else if(oper.value == "-") {
+                resultValue = Math.abs(intNum1 - intNum2);
+                // if(intNum1 < intNum2) {
+                //     var tmp = intNum1;
+                //     intNum1 = intNum2;
+                //     intNum2 = tmp;
+                //     //스왑 tmp 라는 변수를 이용하여 각각의 값을 바꿔줌
+                // } ->안먹히네
+            }
+
+            else if(oper.value == "*") {
+                resultValue = intNum1 * intNum2;
+            }
+
+            else if(oper.value == "/") {
+                resultValue = intNum1 / intNum2;
+            }
+
+            console.log("resultValue:" + resultValue);
+            result.innerText = "결과" + resultValue;
+        }
+    </script>
+</body>
+
+</html>

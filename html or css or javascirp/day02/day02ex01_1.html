@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 스타일시트에서 id값 불러오는거 # */
+    #box{
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 2px solid red;
+        /* Left 는 요소가 레이어여야 적용된다 */
+        position: relative;
+        left: 0px;
+        /* transition: left 0.5s, top 0.5s; */
+        transition: all 0.5s;
+        /* 큐빗베이저에서 자신이 원하는 속도 정할 수 있따. */
+    }
+        /* 0.5초 동안 움직여라 */
+
+        #btnBox{
+            
+            width: 250px;
+            
+        }
+
+        #btnBox button{
+            
+            width: 50px;
+            height: 80px;
+            
+        }
+    /* 스타일시트에서는 - 자바스크립트에서는 낙타봉 */
+</style>
+<body>
+    <!-- 해당 좌표로 움직이게 만들기 (과제 2023/01/25) -->
+    <div id="btnBox">
+    <button class="playBtn">좌상</button>
+    <button class="playBtn">우상</button>
+    <button class="playBtn">좌하</button>
+    <button class="playBtn">우하</button>
+    <!-- 컴퓨터에서는 좌표체계가 수학과는 반대  -->
+    <!-- 클래스일 경우 복수이기 때문에 변수선언에서 복수형 s를 붙여줘야함 -->
+    <!-- 클래스 사용시 클래스 이름 명시 -->
+    </div>
+
+    
+    <div id="box">
+        Box
+    </div>
+    
+    <script>
+        
+        var box = document.getElementById("box");
+        var color=['blue','orange','brown','pink']
+        var playBtnArr = document.getElementsByClassName("playBtn");
+        // 클래스 이름이 맞는지 확인 -> 범준샘은 콘솔로 확인을해봄
+        playBtnArr[0].x=0;
+        playBtnArr[0].y=0;
+
+        playBtnArr[1].x=200;
+        playBtnArr[1].y=0;
+
+        playBtnArr[2].x=0;
+        playBtnArr[2].y=200;
+
+        playBtnArr[3].x=200;
+        playBtnArr[3].y=200;
+        
+        for(var playBtn of playBtnArr) {
+            playBtn.onclick =function(event) {
+
+            box.style.left=this.x+"px";
+            box.style.top=this.y+"px";
+            }
+        }
+    </script>
+</body>
+</html>

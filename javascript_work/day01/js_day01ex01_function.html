@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var art1= "김길동";
+        var art2= "이길동";
+        var art3= "박길동";
+        var art4= "홍길동";
+
+        // console.dir(window.art1);
+        // console.dir(window.art2);
+        // console.dir(window.art3);
+        // console.dir(window.art4);
+
+        for(var i=1; i<=4; i++) {
+            document.write(window['art'+i]+"<br/>");
+        }
+ 
+    </script>
+</body>
+</html>

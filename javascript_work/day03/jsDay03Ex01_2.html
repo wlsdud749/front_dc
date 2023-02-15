@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼항연산자</title>
+</head>
+<body>
+    <!-- 삼항 연산자 실습 (javascript)-->
+
+    <script>
+        const age = parseInt(prompt("나이 입력: ") ); 
+
+        document.write(`<h2>당신의 나이는 ${age}세입니다.</h2>`);
+        
+        var isAdult = (age>19)? "성인": "미성년" ;
+        
+        //삼항연산자 형태 = (조건) ? 참 : 거짓
+        document.write(`당신은 ${isAdult}입니다.`); 
+
+        // document.write(`당신은 ${(age>19)? "성인": "미성년"}입니다.`);
+    </script>
+
+    </script>
+</body>
+</html>

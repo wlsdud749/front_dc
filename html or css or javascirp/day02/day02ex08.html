@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+</head>
+<body>
+    <!-- GET -> URL 뒤에 ? 붙이고 쿼리스트링으로 사용 / 
+        POST 방식 입력폼(이름 및 패스워드를 입력하는 폼/
+        입력양식)이 있어야한다 -->
+
+    <fieldset>
+        <legend>Login</legend>
+        <!-- 폼의 테두리 사용할려면 </fieldset> -->
+    <form action="">
+        <!-- 액션 뒤에는 보낼 주소? -->
+        <table>
+            <tr>
+                <th>아이디</th>
+                <!-- 여기에는 이름 -->
+                <td><input type="text" name="id" value="son"></td>
+                <!-- 미리 받고싶으면 id와 패스워드 벨류값에 값을 미리 입력 -->
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" name="passwd" value="1234"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="로그인"></td>
+                <!-- 버튼은 submit or button -->
+                <!-- submit 은 이름이 없어서 value 입력 -->
+                <!-- 주소창에 쿼리스트링 -> ? 뒤에 아이디와 비밀번호가
+                로그인을 클릭할 시 보여짐. -->
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>

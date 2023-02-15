@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 스타일시트에서 id값 불러오는거 # */
+    #box{
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 2px solid red;
+        /* Left 는 요소가 레이어여야 적용된다 */
+        position: relative;
+        left: 0px;
+        transition: left 0.5s;
+    }
+        /* 0.5초 동안 움직여라 */
+
+        #btnBox{
+            
+            width: 250px;
+            
+        }
+
+        #btnBox button{
+            
+            width: 50px;
+            height: 80px;
+            
+        }
+    /* 스타일시트에서는 - 자바스크립트에서는 낙타봉 */
+</style>
+<body>
+    <!-- 해당 좌표로 움직이게 만들기 (과제 2023/01/25) -->
+    <div id="btnBox">
+    <button id="playBtn1">0,0</button>
+    <button id="playBtn2">0,200</button>
+    <button id="playBtn3">200,200</button>
+    <button id="playBtn4">200,0</button>
+    <!-- 컴퓨터에서는 좌표체계가 수학과는 반대  -->
+    <!-- 클래스일 경우 복수이기 때문에 변수선언에서 복수형 s를 붙여줘야함 -->
+    </div>
+
+    
+    <div id="box">
+        Box
+    </div>
+    
+    <script>
+        var playBtn = document.getElementById("playBtn");
+        var box = document.getElementById("box");
+        var color=['blue','orange','brown','pink']
+        
+        playBtn1.onclick = function (event) {
+            box.style.left= "0px";
+            box.style.top= "0px";
+            box.style.backgroundColor=color[0];
+        }
+
+        playBtn2.onclick = function (event) {
+            box.style.left= "0px";
+            box.style.top= "200px";
+            box.style.backgroundColor=color[1];
+        }
+
+        playBtn3.onclick = function (event) {
+            box.style.left= "200px";
+            box.style.top= "200px";
+            box.style.backgroundColor=color[2];
+        }
+
+        playBtn4.onclick = function (event) {
+            box.style.left= "200px";
+            box.style.top= "0px";
+            box.style.backgroundColor=color[3];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div#box {
+            border: 1px solid black;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left: 0px;
+            transition: all .03s;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="playBtn">Play</button>
+    <div id="box">
+        box
+    </div>
+    
+    <script>
+
+        var playBtn = document.getElementById("playBtn");
+        playBtn.onclick = function () {
+            var box = document.querySelector("div#box");
+            var boxStyle = getComputedStyle(box);
+
+            // console.log(box);
+            // var x = getComputedStyle(box).left; 
+            // box style 가져올 수 있다 / 범준샘도 읽어보고 쓰는것같음.
+            var x = parseInt(boxStyle.left);
+            // 숫자값만 쓰고 싶으면 parseInt 를 활용하자 !
+            var y = boxStyle.top;
+            var w = boxStyle.width;
+            var h = boxStyle.height;
+
+            // console.log(box.offsetWidth); 
+            // box.style.width setter 기능밖에 없음 / offsetWidth 넓이 가져오기
+            // console.log(x,y,w,h);
+
+
+            var refInterval = setInterval(function () {
+                x += 10;
+                if (x >= 300) {
+                    x = 400;
+                    clearInterval(refInterval);
+                    // refInterval 를 강제로 종료시킴
+                }
+                // console.log(x);
+
+                box.style.left = x + "px";
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수를 배열에 담아서 사용.
+
+        var _factory = [
+            function() {
+                return null;
+            },
+            function() {
+                return null;
+            },
+            function() {
+                return "Hello world";
+            },
+            function() {
+                return null;
+            }
+        ];
+
+    //    함수를 반목문 안에서 실행할 수 있다?? var __ of __ 쓰면??
+    //     for(var fn of _factory) {
+    //         console.log(fn());
+    //     }
+
+        for (var i=0; i<_factory.length; i++) {
+            try { // try 캐치??
+                console.log(_factory[i]().length);
+            }
+            catch (e) { // 이게뭐지
+                console.log("catch : null 입니다.");
+                continue; 
+            }
+        }
+            // try 안에 내용이 끝나면 catch (e) 로 넘어가는 형식인 것 같음.
+            // if-else 의 특별한 경우. 예외가 있는 경우 catch (e) 로 넘어감??
+        console.log("끝!");
+    </script>
+</body>
+</html>

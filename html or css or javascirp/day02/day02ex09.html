@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>폼 테그 연습</legend>
+        <label for="user_name">성명 : </label>
+        <!-- label for="아이디" 라벨에 해당하는 곳만 눌러도 이름을 입력가능 -->
+        <!-- 제목 -->
+        <input type="text" name="user_name" id="user_name">
+        <hr/>
+        성별 :
+        <input type="radio" name="gender" value="남"> 남
+        <input type="radio" name="gender" value="여"> 여
+        <hr/>
+        취미 :
+        <input type="checkbox" name="취미" value="코딩" checked> 코딩
+        <input type="checkbox" name="취미" value="프로그래밍"> 프로그래밍
+        <input type="checkbox" name="취미" value="개발"> 개발
+        <input type="checkbox" name="취미" value="기획"> 기획
+
+        <!-- input 의 타입에 따라서 모양이 달라지는것같음 -->
+        <!-- checked 입력시 자동으로 체크 -->
+        <hr/>
+        사는곳 :  
+        <select name="사는곳" id="사는곳">
+
+            <option value="서울">서울</option>
+            <option value="대구">대구</option>
+            <option value="광주">광주</option>
+            <option value="부산">부산</option>
+            <option value="포항">포항</option>        
+            
+            <!-- 풀다운 메뉴가 만들어짐 -->
+        </select>
+        <hr/>
+
+        이메일 :
+        <input type="email" name="email"> 
+        <hr/>
+        나이 : <input type="number" name="age">
+        <input type="submit" value="전송">
+
+        
+    </fieldset>
+</body>
+</html>

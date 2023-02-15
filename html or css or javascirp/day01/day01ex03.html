@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 순서가 있고 없고의 차이 ol / ul  -->
+    <ul type="circle" class="click">
+        <!-- li*(숫자) 로 여러개 생성 가능 -->
+        <!-- 순서 없는 목록 -->
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+    <ol type="a" class="menu">
+        <!-- 목록태그 순서있는 목록 -->
+        <li>ol-title01</li>
+        <li>ol-title02</li>
+        <li>ol-title03</li>
+    </ol>
+
+    <script>
+        var ul=document.getElementsByTagName("ul")[0];
+        var colorNames=ul.getElementsByTagName("li");
+        for(var liTag of colorNames) {
+            // console.log(liTag);
+            liTag.onclick=function(event) { 
+                //this는 객체 자신.
+                //console.log(this)
+                // console.log(this===event.target);
+                // // == === != !==
+                // // 자바스크립트는 this의 정체
+                // console.log(this.innerText);
+                var colorName=this.innerText;
+                document.body.style.background = colorName;
+                
+                
+        }
+    }
+    </script>
+
+    <script>
+        
+        // var ulTag=document.getElementsByClassName("menu");
+        
+        // console.log(ulTag[0]);
+        // // ctrl+space 
+        // // 문서 내의 모든 li요소를 선택해서 liList가 참조하도록 한다.
+        // // getElementsByClassName 의 결과는 List 이다.
+
+        // var liList = ulTag[0].getElementsByTagName("li");
+        // console.log(liList[0]);
+        // console.log(liList[1]);
+        // console.log(liList[2]);
+        // console.dir(liList);
+        // // liList는 배열처럼 생각
+        // //검사용 (구글 개발자 모드에서 콘솔에서 확인용도)
+        // // liList의 모든 요소에 이벤트 핸들러 한번에 추가
+        // for (var i=0; i<liList.length; i++) {   
+        //     console.log(liList[i]);
+        //     liList[i].onclick=function(event) {
+        //         console.log(event.target.innerText);   
+        //     // 콘솔창에서 값이 찍힘
+        //     }
+        // }
+
+    </script>
+</body>
+</html>

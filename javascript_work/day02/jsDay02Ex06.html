@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 클래스 식별자는 대문자로 시작한다.
+        function People() {
+            this.name = "홍";
+            this.move = function () {
+                var cnt = 0;
+                console.log(this.name); 
+                console.log(this);
+                var ref = setInterval(function () {
+                    console.log(this); //Window
+                    console.log(this.name);
+
+                    if(++cnt >= 2) {
+                        clearInterval(ref);
+                    }
+                }, 500);
+            }
+        }
+
+        // 객체 생성
+
+
+        var p = new People();
+        p.move();
+    </script>
+</body>
+
+</html>

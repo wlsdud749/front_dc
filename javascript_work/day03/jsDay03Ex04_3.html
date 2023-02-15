@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또번호 (중복숫자 X)</title>
+
+    <style>
+        div#lottoArea div {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            border: 1px solid red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>로또 번호 생성기</h1>
+    <fieldset>
+        <!-- fieldset 은 박스모양 만드는것 -->
+        <legend>Lotto</legend>
+        <!-- legend 는 박스에 걸쳐진 문자 -->
+        <div id="lottoArea">
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </div>
+    </fieldset>
+
+    <script>
+        const colors = ['red', 'green', 'blue', 'yellow', 'skyblue', 'pink'];
+        const ballList = document.querySelectorAll("#lottoArea>div");
+        ballList.forEach((item, idx) => {
+            item.style.backgroundColor = colors[idx];
+        });
+
+        function lottoFn() {
+        for(;lotto.size<6;) {
+           
+            lotto.add(1+Math.floor(Math.random()*6));
+            
+        }
+
+        let i=0;
+        lotto.forEach((value)=> {
+            newLotto.push(value);
+        });
+
+        // Set구조에는 index가 없다. 그래서 정렬 안됨.
+        newLotto.sort();
+        }
+
+            
+            // 뒤에 숫자 +1 하는경우는 1부터가 아닌 다른것부터 시작일때 그런듯.
+            // 중복되는 숫자가 나오지 않게 할려면?
+            // 랜덤으로 뽑은 수가 같으면 한번 더 돌리면 됨.
+            // -> 내 생각이었는데 범준샘은 indexOf를 사용해서 배열의 위치랑 값으로 함
+        
+        
+    </script>
+</body>
+
+</html>

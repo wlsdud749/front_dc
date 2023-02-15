@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션 바</title>
+
+    <style>
+        #nav > ul {
+            border: 0px solid red;
+            list-style: none;
+            /* height: 80px; */
+            overflow: hidden;
+            width: 1000px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #nav  li {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            text-align: center;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            /* 글의 행의 높이 (텍스트 행의 높이) */
+            /* display: inline-block; 상의버전 브라우저에서 사용*/
+            display: block;
+            float: left;
+            box-sizing: border-box;
+
+            /* display:block , float:left 하면 네비게이션 메뉴처럼 생성가능 
+            순서가 없던 것들을 한줄로 나열하게 해준다. */
+            /* display: inline-block 와 text-align: center 을 사용해도 중간정렬 가능 */
+        }   
+
+        #nav li:hover {
+            /* hover 마우스가 올라가면, */
+            background-color: gray;
+            border-bottom: 2px solid red;
+        }
+
+        /* :: -> 가상 판별자 */
+
+        #head{
+            text-align: center;
+        }
+
+        div#page {
+            width: 1000px;
+            margin: 0 auto;
+            /* 좌, 우가 모두 auto면 가운데 정렬 한다. 
+            블럭 요소라서 text-align=center 먹히지가 않는다. */
+        }
+        /* >는 경로라고 생각하면됨 (자식? 개념) */
+    </style>
+</head>
+<body>
+    <div id="page">
+    <div id="head">
+        <h1 id="title">길동이의 홈페이지</h1>
+        <div id="nav">
+            <ul>
+                <li>HOME</li>
+                <li>PROFILE</li>
+                <li>GALLERY</li>
+                <li>LECTURE</li>
+                <li>BOARD</li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <h2>오신것을 환영합니다.</h2>
+    </div>
+</div>
+</body>
+</html>

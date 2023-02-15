@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li span {
+            display: inline-block;
+            width: 200px;
+            height: 40px
+        }
+    </style>
+</head>
+<body>
+    <!-- 주말 과제 HTML,CSS,JS 를 이용해서 ToDo-List 구현 -->
+    <div class="container" style="text-align: center;">
+        <h1>할 일 목록</h1>
+
+        <p>
+            할 일 <input type="text" id="newWork">
+            <button id="addBtn">추가</button>
+        </p>
+    </div>
+
+    <ul id="todolist">
+        <li>
+            <input type="checkbox" name="" id="">
+            <span>놀기 </span>
+            <button>삭제</button>
+        </li>
+
+        <li>
+            <input type="checkbox" checked>
+            <span><del> 주말과제하기
+            </del>
+            </span>
+            <!-- 취소선. del -->
+            <button>삭제</button>
+        </li>
+
+        <li>
+            <input type="checkbox" name="" id="">
+            <span>청소하기</span>
+            <button>삭제</button>
+        </li>
+
+        <li>
+            <input type="checkbox" name="" id="">
+            <span>운동하기</span>
+            <button>삭제</button>
+        </li>
+
+        <li>
+            <input type="checkbox" name="" id="">
+            <span>복습하기</span>
+            <button>삭제</button>
+        </li>
+    </ul>
+</body>
+</html>
