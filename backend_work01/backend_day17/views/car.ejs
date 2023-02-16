@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- ejs는 Embedded JavaScript의 약자로, 
+쉽게 말하면 자바스크립트가 내장되어 있는 html 파일 -->
+<!-- ejs 는 서버의 console 에서 출력 -->
+<% console.log("Hello ejs!"); 
+console.log("user name : " + userName);
+    %>
+    <p>사용자 : <%= userName %></p>
+    
+<body>
+    <h1>중고 자동차 쇼핑몰</h1>
+    <%
+    // JS 문법으로 작성
+    //console.log(carList);
+    for(var car of carList) {
+    %>
+        <!-- HTML로 작성 -->
+        <p><%=car.no %>, <%=car.title %>, <%=car.price %>, <%=car.company %>, <%=car.year %></p>
+    <%
+    } // end of for
+    %>
+</body>
+</html>
