@@ -1,46 +1,87 @@
-const http = require('http');
-const express = require('express');
+const http = require("http");
+const express = require("express");
 const app = express();
-// expree 는 app 이랑 같이 사용?
-const cors = require('cors');
+const cors = require("cors");
 
-// view engine - 템플릿엔진
-app.set("views", __dirname + "/views");  // prefix 
+app.set("views", __dirname + "/views"); // prefix
 app.set("view engine", "ejs"); // suffix
 
 process.env.PORT = 3000;
-app.set('port', process.env.PORT || 3001);
-// console.log(process.env.PORT || 3000); // 3항 연산자의 줄임 표현
+app.set("port", process.env.PORT || 3001);
 
-// 특정 패스 요청 처리 app.get()
+app.use(express.json()); // application/json
+app.use(express.urlencoded({ extended: true })) // application/x-www-form-urlencoded
+
+// static 미들웨어 설정 - express에 내장.
+app.use(express.static(__dirname + "/public"));
+
+const todoList = [
+  { idx: 1, title: "hello", done: false },
+  { idx: 2, title: "world", done: false },
+  { idx: 3, title: "node공부", done: false }
+];
+let seqTodoList = 4;
+
 app.get("/home", (req, res) => {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-    res.write("<h1>길동이의 홈페이지</h1>");
-    res.end(); // end() 안하면 무한루프 발생
+  res.writeHead(200, { "Content-Type": "text/html; charset=utf8" });
+  res.write("<h1>길동이의 홈페이지</h1>");
+  res.end();
 });
 
-const carList = [
-    { no: 1, title: "SONATA", price: 3000, company: "HYUNDAI", year: 2022 },
-    { no: 2, title: "GRANDEUR", price: 4000, company: "HYUNDAI", year: 2019 },
-    { no: 3, title: "K9", price: 7000, company: "KIA", year: 2020 },
-];
+app.get("/todoList", (req, res) => {
+  req.app.render("todoList", { todoList: todoList }, (err, data) => {
+    if (err) throw err;
+    res.end(data);
+  });
+});
 
-// ejs 템플릿 뷰 엔진 사용 (view engine)
-app.get("/car", (req, res) => {
-    //  req.app.render( 뷰, data, 콜백(err,data{}) ) 형식으로 사용
-    let userName = "김범준샘";
-    req.app.render("car", { userName, carList }, (err, data) => {
-        if (err != null) {
-            console.log(err);
-            return;
-        }
-        res.end(data);
-    });
+app.post("/todoList", (req, res) => {
+  console.log("POST - /todoList");
+  var newItem = req.body.newItem;  // bodyParser 설정.
+  todoList.push({ idx: seqTodoList++, title: newItem, done: false })
+  res.redirect("/todoList");
+});
 
+app.get("/todoList/delete", (req, res) => {
+  console.log("GET - /todoList/delete");
+  let idx = req.query.idx;
+  
+  console.log(idx);
+
+  let index = todoList.findIndex((item, i) => {
+    return item.idx == idx;
+  });
+
+  if (index != -1) {
+    todoList.splice(index,1);
+  }
+  res.redirect("/todoList");
+});
+
+app.get("/todoList/update", (req, res) => {
+  console.log("GET - /todoList/update");
+  let idx = req.query.idx;
+  let title = req.query.title;
+
+  // index를 찾는다.
+  // 해당 요소의 title을 변경.
+  let index = todoList.findIndex((item, i) => {
+    return item.idx == idx;
+  });
+  if (index != -1) {
+    todoList[index].title = title;
+  }
+
+  res.redirect("/todoList");
+})
+
+app.get("/json/todoList", (req, res) => {
+  // res.end() - 문자열 인자만 처리
+  // res.send() - (수식 or 객체)만 처리 => 결과는 JSON문자열
+  res.send({ todoList });
 });
 
 const server = http.createServer(app);
-// createServer + app = > http 와 express 를 합쳐준다 - 같은 port 사용
-server.listen(app.get('port'), () => {
-    console.log("Node.js server 실행 중 ... http://localhost:" + app.get('port'));
-})
+server.listen(app.get("port"), () => {
+  console.log("Node.js 서버 실행 중 ... http://localhost:" + app.get("port"));
+});
