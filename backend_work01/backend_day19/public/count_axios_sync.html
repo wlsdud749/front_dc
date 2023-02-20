@@ -11,11 +11,15 @@
     <div id="result"></div>
     <script>
         let result = document.getElementById("result");
+        let cnt = 0;
         async function getCount(srcUrl) {
             try {
                 const response = await axios.get(srcUrl);
-                console.log(response);
-                result.innerText = JSON.stringify(response.data);
+                //console.log(response.data);
+                if(response.data != "") {
+                    result.innerText = JSON.stringify(response.data);
+                    cnt = response.data.cnt;
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -23,6 +27,9 @@
         window.onload = function() {
             var url = "http://localhost:3000/count";
             getCount(url);
+            setInterval(()=>{
+                getCount("http://localhost:3000/count/" + cnt);
+            }, 1000);
         };
     </script>
 </body>
