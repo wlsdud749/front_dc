@@ -47,41 +47,6 @@ let upload = multer({
 });
 
 /////// router -------
-// 웹 counter 예재
-let cnt = 0; // count 를 해줄 전역변수 생성
-let responseDate = {};
-router.route("/count").get((req, res) => {
-  console.log("GET -/ count");
-  cnt++; // cnt+=1;
-  let date = new Date();
-  let responseDate = {
-    cnt: cnt,
-    dateStr : date.getFullYear()+"-"
-    +(date.getMonth()+1)+"-"+(date.getDate())+" "+(date.getHours())+":"
-    +(date.getMinutes())+":"+(date.getSeconds()),
-    date : {date}
-  }
-
-  // res.end(cnt+""); // red.end(); <-- 문자열만 사용 가능, 문자열을 더해주면 문자열이 됨 (자바스크립트에서)
-  res.send(JSON.stringify({ responseDate }));
-});
-router.route("/count/:paramCnt").get((req,res)=> {
-  console.log("GET -/count/receive");
-  // 전역변수 cnt 와 파라미터로 전달된 cnt 가 다르면 responseDate 반환.
-  let paramCnt = Number(req.params.paramCnt);
-  if( cnt!= paramCnt) {
-    res.end(JSON.stringify({ responseDate }));
-  } else {
-    res.end("");
-  }
-});
-
-
-
-
-
-
-// file upload 예제
 router.route("/home").get((req, res) => {
   res.writeHead(200, { "Content-Type": "text/html; charset=utf8" });
   res.write("<h1>길동이의 홈페이지</h1>");
